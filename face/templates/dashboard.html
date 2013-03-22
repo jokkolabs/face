@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load tinymce_tags %}
+{% block title %} face{% endblock %}
+{% block page-id %}dashboard{% endblock %}
+{% block content %}
+
+<div class="row-fluid">
+    <div class="span9" style="border-right:1px solid #E5E5E6">
+        <h2 class="heading-title">Laquelle te plaît le plus <blink>?</blinl></h2>
+        <div class="row-fluid">
+            <div class="span5">
+                <div id="cbox2">
+                    <span class="posted-style">12 Points</span><span class="posted-style">Partager</span>
+                    <a href={{choice2}}><img src={{choice2}} alt="" /></a>
+                </div>
+            </div>
+            <div class="span4">
+                <div id="cbox2">
+                    <span class="posted-style">20 Points</span><span class="posted-style">Partager</span>
+                    <a href={{choice1}}><img src={{choice1}} alt="" /></a>
+                </div>
+            </div>
+            <div class="span3">
+                <div id="move">
+                <ul>
+                    <li><a class="right carousel-control" data-slide="next" href="#">›</a></li>
+                    <li><a class="left carousel-control" data-slide="prev" href="#">‹</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+
+<p>
+    <a href="http://yeleman.com/">Copyright (c) 2013 yeleman.com. All rights reserved. </a>
+    {% ifequal menu 'admin' %}
+        <a href = "{% url 'dashboard' %}"><span class="label label-info">Retourner au site</span></a>
+        <a href="{% url 'logout' %}"><span class="label label-info">Se déconnecter</span></a>
+    {% else %}
+        <a href = "{% url 'login' %}"><span class="label label-info">Espace d'administration</span></a>
+    {% endifequal %}
+</p>

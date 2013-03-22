@@ -1,8 +1,10 @@
 from django.conf.urls import patterns, include, url
+from django.contrib import admin
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from settings import MEDIA_ROOT
+from face import views
+
+admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
@@ -14,4 +16,16 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', "face.views.dashboard", name="dashboard"),
+    url(r"^logout/?$", "face.views.logout", name="logout"),
+    url(r'^login/?$', "face.views.login", name="login"),
+    url(r'^media/(?P<path>.*)$',
+         'django.views.static.serve',
+         {'document_root': MEDIA_ROOT, 'show_indexes': True},
+         name='media'),
+)
+
+urlpatterns += patterns('',
+    url(r'^admin/', include(admin.site.urls)),
+    (r'^tinymce/', include('tinymce.urls')),
 )
