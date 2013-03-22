@@ -34,34 +34,7 @@ p
     line-height: 180%;
 }
 
-a:hover
-{
-    text-decoration: none;
-}
 
-a img
-{
-    border: 1px solid white;
-}
-
-img.border
-{
-}
-
-img.alignleft
-{
-    float: left;
-}
-
-img.alignright
-{
-    float: right;
-}
-
-img.aligncenter
-{
-    margin: 0px auto;
-}
 
 hr
 {
@@ -174,7 +147,7 @@ hr
 #cbox2
 {
     float: left;
-    width: 220px;
+    width: 275px;
 }
 
 #cbox3
@@ -400,10 +373,51 @@ h2, h3, h4, h5, .carousel-caption .lead {
     position: inherit;
 }
 
-#move ul li{
+#refresh {
     list-style:none;
-    margin-top: 3em;
+    margin-top: 6em;
 }
 #start{
     float: right;
+}
+
+a {
+    color: #FFFFFF;
+}
+a:hover
+{
+    text-decoration: none;
+}
+
+a img
+{
+    border: 1px solid white;
+}
+
+img.border
+{
+}
+
+img.alignleft
+{
+    float: left;
+}
+
+img.alignright
+{
+    float: right;
+}
+
+img.aligncenter
+{
+    margin: 0px auto;
+}
+
+#dashboard #cbox2 img {
+    height: auto;
+    max-height: 20em;
+    max-width: 20em;
+    min-height: 20em;
+    min-width: 20em;
+    vertical-align: middle;
 }

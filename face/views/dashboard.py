@@ -16,8 +16,6 @@ def dashboard(request):
         choice1 = choice(links)
         links.pop(links.index(choice1))
         choice2 = choice(links)
-        print choice1
-        print choice2
         context.update({"choice1": choice1, "choice2": choice2})
 
     return render(request, 'dashboard.html', context)

@@ -34,5 +34,6 @@ nosetests.xml
 .project
 .pydevproject
 
+*.sqlite
 local_settings.py
 static/
