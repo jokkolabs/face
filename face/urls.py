@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 from settings import MEDIA_ROOT
-from face import views
+# from face import views
 
 admin.autodiscover()
 

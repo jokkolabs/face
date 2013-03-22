@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="{{ STATIC_URL }}css/face_style.css" type="text/css" />
         <link rel="shortcut icon" href="{{ STATIC_URL }}css/images/favicon.png">
         <script src="{{ STATIC_URL }}js/jquery-latest.js"></script>
+        <script src="{{ STATIC_URL }}js/face.js"></script>
         <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,12 @@
         <!--[if gte IE 7]>
             <link type="text/css" rel="stylesheet" media="all" href="{{ STATIC_URL }}css/face_ie7.css" />
         <![endif]-->
+        <script type="text/javascript">
+            $(document).ready(function(){
+                face_init();
+            });
+        </script>
+
     </head>
     <div  id="banner-wrapper">{% include "_menu.html" %}</div>
     <body class="container">
@@ -28,3 +35,5 @@
     </body>
     <div id="footer">{% include "_footer.html" %}</div>
 </html>
+
+</script>

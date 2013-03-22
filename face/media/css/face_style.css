@@ -34,8 +34,6 @@ p
     line-height: 180%;
 }
 
-
-
 hr
 {
     display: none;
@@ -140,7 +138,7 @@ hr
 #cbox1
 {
     float: left;
-    width: 320px;
+    width: 245px;
     margin-right: 20px;
 }
 
@@ -193,10 +191,10 @@ hr
 #banner
 {
     /*overflow: hidden;*/
-    width: 680px;
-    height: 366px;
-    padding: 50px 320px 0px 0px;
     color: #FFFFFF;
+    height: 271px;
+    padding-top: 6px;
+    width: 680px;
 }
 
 #banner h2
@@ -375,10 +373,17 @@ h2, h3, h4, h5, .carousel-caption .lead {
 
 #refresh {
     list-style:none;
-    margin-top: 6em;
+    margin-left: 1em;
+    margin-top: 10em;
 }
-#start{
+#start {
     float: right;
+}
+#start img {
+    max-height: 20em;
+    max-width: 20em;
+    min-height: 20em;
+    min-width: 20em;
 }
 
 a {
@@ -414,10 +419,16 @@ img.aligncenter
 }
 
 #dashboard #cbox2 img {
-    height: auto;
     max-height: 20em;
     max-width: 20em;
     min-height: 20em;
     min-width: 20em;
     vertical-align: middle;
+}
+
+#dashboard #refresh .img-circle {
+    background-color: white;
+    border-color: #666666;
+    border-radius: 500px 500px 500px 500px;
+    padding: 0.5em;
 }
