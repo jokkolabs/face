@@ -23,7 +23,7 @@ class Picture(models.Model):
                                              default=datetime.datetime.today)
     link = models.CharField(max_length=100, verbose_name=("Lien de l'image"), unique=True)
     favorable = models.IntegerField(verbose_name=("favorable"), default=0)
-    unfavorable = models.IntegerField(verbose_name=("Defavorable"), default=0)
+    # unfavorable = models.IntegerField(verbose_name=("Defavorable"), default=0)
     sex = models.CharField(u"Sexe", max_length=1, choices=SEX_CHOICES)
     status = models.BooleanField(default=True, verbose_name=("Visible"))
 
@@ -31,17 +31,29 @@ class Picture(models.Model):
         return (u'%(link)s %(status)s') % \
                    {'link': self.link, 'status': self.status}
 
+    def to_dict(self):
+        d = super(Picture, self).to_dict()
+        d.update({'link': self.link, 'favorable': self.favorable,
+                  'sex': self.sex})
+        return d
+
 
 class Vote(models.Model):
     """ Chaque vote """
     picture = models.ForeignKey(Picture, verbose_name=("Photo"))
     date = models.DateTimeField(verbose_name=("Date du vote"),
                                                default=datetime.datetime.today)
-    yesno = models.BooleanField(default=True, verbose_name=("Oui/Non"))
+    yes = models.BooleanField(default=False, verbose_name=("Oui/Non"))
 
     def __unicode__(self):
         return (u'%(date)s %(yesno)s') % \
                    {'date': self.date, 'yesno': self.yesno}
+
+    def save(self):
+        if self.yes:
+            self.picture.favorable += 1
+            self.picture.save()
+        super(Vote, self).save()
 
 
 class TextStatic(models.Model):
