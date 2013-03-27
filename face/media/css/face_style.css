@@ -337,7 +337,7 @@ ol.style1 a:hover
 
 
 
-.posted-style
+/*.posted-style
 {
     display: inline-block;
     padding: 2px 9px;
@@ -345,6 +345,14 @@ ol.style1 a:hover
     text-decoration: none;
     color: #FFFFFF;
     border-color: #FFFFFF;
+}*/
+.posted-style
+{
+   background: none repeat scroll 0 0 #AF2C54;
+    color: #FFFFFF;
+    display: inline-block;
+    padding: 2px 9px;
+    text-decoration: none;
 }
 
 /*face common*/
@@ -431,4 +439,16 @@ img.aligncenter
     border-color: #666666;
     border-radius: 500px 500px 500px 500px;
     padding: 0.5em;
+}
+
+#down {
+    float: right;
+    height: 5px;
+    margin-right: 3em;
+}
+
+a:hover
+{
+    text-decoration: none;
+    color: #d0d0d0;
 }

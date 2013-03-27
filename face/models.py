@@ -21,7 +21,7 @@ class Picture(models.Model):
 
     date = models.DateField(verbose_name=("Date d'inscription"),
                                              default=datetime.datetime.today)
-    link = models.CharField(max_length=100, verbose_name=("Lien de l'image"), unique=True)
+    link = models.CharField(max_length=200, verbose_name=("Lien de l'image"), unique=True)
     favorable = models.IntegerField(verbose_name=("favorable"), default=0)
     # unfavorable = models.IntegerField(verbose_name=("Defavorable"), default=0)
     sex = models.CharField(u"Sexe", max_length=1, choices=SEX_CHOICES)
@@ -32,9 +32,8 @@ class Picture(models.Model):
                    {'link': self.link, 'status': self.status}
 
     def to_dict(self):
-        d = super(Picture, self).to_dict()
-        d.update({'link': self.link, 'favorable': self.favorable,
-                  'sex': self.sex})
+        d = {'plink': self.link, 'favorable': self.favorable,
+                  'sex': self.sex, "status": self.status}
         return d
 
 

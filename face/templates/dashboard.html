@@ -7,12 +7,15 @@
 <div class="row-fluid">
     <div class="span9" style="border-right:1px solid #E5E5E6">
         <h2 class="heading-title" style="text-align:center">Laquelle te plaît le plus <blink>?</blinl></h2>
-        <div class="row-fluid">
+        <div class="row-fluid"  id="yoxview_custom" class="thumbnails">
+
             <div class="span5">
                 <div id="cbox2">
-                    <span class="posted-style">12 Points</span>
-                    <a href={{picture2.link}}><img src={{picture2.link}} alt="" /></a>
-                    <span class="posted-style"><a href={{picture2.link}}>Partager</a></span>
+                    <div id="p1">
+                        <span class="posted-style">{{picture1.favorable}} point</span> <a href="#"><img src={{picture1.link}} alt="" /></a>
+                        <span class="posted-style"><a href="#">Partager</a></span>
+                        <span class="posted-style"><a href={{picture1.link}}><img src="" alt="Agrandir" title={{picture1.name}} /></span>
+                     </div>
                 </div>
             </div>
             <div class="span2">
@@ -22,9 +25,11 @@
             </div>
             <div class="span5">
                 <div id="cbox2">
-                    <span class="posted-style">20 Points</span>
-                    <a href={{picture1.link}}><img src={{picture1.link}} alt="" /></a>
-                    <span class="posted-style"><a href={{picture1.link}}>Partager</a></span>
+                    <div id="p2">
+                    <span class="posted-style">{{picture1.favorable}} point</span> <a href="#" onclick="alertp()" ><img src={{picture2.link}} alt="" /></a>
+                    <span class="posted-style"><a href="#">Partager</a></span>
+                    <span class="posted-style"><a href={{picture2.link}}><img src="" alt="Agrandir" title={{picture1.name}} /></span>
+                     </div>
                 </div>
             </div>
         </div>
