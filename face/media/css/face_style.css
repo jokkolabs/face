@@ -452,3 +452,12 @@ a:hover
     text-decoration: none;
     color: #d0d0d0;
 }
+
+#yoxview_menuPanel {
+    border-radius: 0 0 0 15px;
+    height: 42px;
+    padding-right: 9px;
+    padding-top: 0;
+    position: relative;
+    right: 0;
+}

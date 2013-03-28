@@ -8,19 +8,22 @@ from random import choice
 
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
 
 from face.models import Picture
 
 
 def dashboard(request):
-
     context = {"category": 'dashboard', 'user': request.user}
     pictures = [picture for picture in Picture.objects.all()]
+    start = Picture.objects.order_by("-favorable")[0]
     if pictures:
         picture1 = choice(pictures)
         pictures.pop(pictures.index(picture1))
         picture2 = choice(pictures)
-        context.update({"picture1": picture1, "picture2": picture2})
+        context.update({"picture1": picture1, "picture2": picture2,
+                        "start": start})
 
     return render(request, 'dashboard.html', context)
 
@@ -36,8 +39,12 @@ def picturelist(*args, **kwargs):
     return HttpResponse(json.dumps(data))
 
 
+@require_POST
+@csrf_exempt
 def vote(request):
     data = {}
-    picture_link = request.form.get('picture_link', None)
-    print picture_link
+    picture_link = request.POST.get('link', None)
+    p = Picture.objects.get(link=picture_link)
+    p.favorable += 1
+    p.save()
     return HttpResponse(json.dumps(data))
