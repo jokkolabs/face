@@ -34,3 +34,10 @@ def picturelist(*args, **kwargs):
         data = {"picture1": picture1.to_dict(), "picture2": picture2.to_dict()}
 
     return HttpResponse(json.dumps(data))
+
+
+def vote(request):
+    data = {}
+    picture_link = request.form.get('picture_link', None)
+    print picture_link
+    return HttpResponse(json.dumps(data))
