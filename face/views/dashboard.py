@@ -34,7 +34,9 @@ def picturelist(*args, **kwargs):
         picture1 = choice(pictures)
         pictures.pop(pictures.index(picture1))
         picture2 = choice(pictures)
-        data = {"picture1": picture1.to_dict(), "picture2": picture2.to_dict()}
+        star = Picture.objects.order_by("-favorable")[0]
+        data = {"picture1": picture1.to_dict(), "picture2": picture2.to_dict(),
+                "star": star.to_dict()}
 
     return HttpResponse(json.dumps(data))
 

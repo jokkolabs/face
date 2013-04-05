@@ -1,21 +1,14 @@
 /** CSS **/
 
-html, body
-{
-    height: 120%;
-    /*height: auto;*/
-}
-
 body
-{
-    margin: 0px;
-    padding: 0px;
-    background: #2A2A2A;
-    background-image: linear-gradient(to bottom, red, yellow);
-    background-repeat: repeat-x;
-    /*font-family: 'Open Sans', sans-serif;*/
+{   background-color: #758D3C;
+    background-image: linear-gradient(to bottom, #758D3C, #2A0004);
+    /*background-image: linear-gradient(to bottom, #B9C489, #2A0004);*/
+    /*background-image: linear-gradient(to bottom, red, yellow);*/
+    font-family: 'Open Sans',sans-serif;
     font-size: 13px;
-    color: #000000;
+    margin: 0;
+    padding: 0;
 }
 
 h1, h2, h3
@@ -48,65 +41,8 @@ hr
     background: #f2f2f2;
 }
 
-.clearfix
-{
+.clearfix {
     clear: both;
-}
-
-.heading-title
-{
-    /*border-bottom: 1px solid #E5E5E6;*/
-    display: block;
-    font-size: 2em;
-    font-weight: 600;
-    margin-bottom: 1em;
-}
-
-/** HEADER */
-
-#header
-{
-    overflow: hidden;
-    height: 100px;
-}
-
-/** MENU */
-
-#menu
-{
-    float: right;
-    width: 600px;
-    height: 100px;
-}
-
-#menu ul
-{
-    float: right;
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-    line-height: normal;
-}
-
-#menu li
-{
-    float: left;
-    padding-left: 40px;
-}
-
-#menu a
-{
-    display: inline-block;
-    line-height: 100px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #a2a2a2;
-}
-
-#menu a:hover
-{
-    text-decoration: underline;
-    color: #d0d0d0;
 }
 
 /** PAGE */
@@ -384,10 +320,10 @@ h2, h3, h4, h5, .carousel-caption .lead {
     margin-left: 1em;
     margin-top: 10em;
 }
-#start {
+#star {
     float: right;
 }
-#start img {
+#star img {
     max-height: 20em;
     max-width: 20em;
     min-height: 20em;
@@ -407,8 +343,9 @@ a img
     border: 1px solid white;
 }
 
-img.border
+img .agrandir
 {
+    border: none;
 }
 
 img.alignleft
@@ -463,9 +400,34 @@ a:hover
 }
 h1, h2, h3 {
     /*color: #D51D21;*/
-    font-family: 'Gentium Basic',serif;
+    font-family: 'Gentium Basic',serif; font-style: italic; margin: 0 0 10px; padding-top: 0; text-shadow: 1px 4px 6px #5E4343;
+}
+
+/* Albums*/
+h1 { font-family: Georgia; font-style: italic; margin-bottom: 10px; }
+
+h2 {
+    font-family: Georgia;
     font-style: italic;
-    margin: 0 0 10px;
-    padding-top: 0;
-    text-shadow: 1px 4px 6px #5E4343;
+    margin: 25px 0 5px 0;
+}
+
+p { font-size: 1.2em; }
+
+ul li { display: inline; }
+
+.wide {
+    border-bottom: 1px #000 solid;
+    width: 4000px;
+}
+
+.fleft { float: left; margin: 0 20px 0 0; }
+
+.cboth { clear: both; }
+
+#main {
+    background: #fff;
+    margin: 0 auto;
+    padding: 30px;
+    width: 1000px;
 }
