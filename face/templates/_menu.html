@@ -15,7 +15,7 @@
     </ol>
     <div id="down" id="twTexteVertical"> <marquee behavior="scroll" direction="down"> <img src="{{STATIC_URL}}css/images/down.png" alt="" /></marquee></div>
 
-    <a href="#" class="button-style">connexion facebook</a>
+    <a href="#" class="button-style"><strong>Connexion facebook</strong></a>
 </div>
 <div class="navbar-wrapper">
     <div class="navbar navbar-inverse">
@@ -27,17 +27,17 @@
         </button>
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li {% if category = 'dashboard' %} class="active"{% endif %}><a class="" href="{% url 'dashboard' %}"><strong>Home</strong></a></li>
+            <li {% if category = 'about' %} class="active"{% endif %}><a href="#about">About</a></li>
+            <li {% if category = 'contact' %} class="active"{% endif %}><a href="#contact">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Albums <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Classements</a></li>
+                <li {% if category = 'gallery' %} class="active"{% endif %}><a href="{% url 'gallery' %}">Classements par point</a></li>
                 <li class="divider"></li>
-                <li class="nav-header">Photo</li>
+                <li {% if category = '' %} class="active"{% endif %} class="nav-header">Photo</li>
                 <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li {% if category = '' %} class="active"{% endif %}><a href="#">One more separated link</a></li>
               </ul>
             </li>
           </ul>

@@ -4,3 +4,4 @@
 
 from dashboard import dashboard, picturelist, vote
 from login import login, logout
+from gallery import gallery

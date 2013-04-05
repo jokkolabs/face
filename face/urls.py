@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', "face.views.dashboard", name="dashboard"),
+    url(r'^gallery/$', "face.views.gallery", name="gallery"),
     url(r'^vote/$', "face.views.vote", name="vote"),
     url(r'listp/$', "face.views.picturelist", name="listp"),
     url(r'^logout/?$', "face.views.logout", name="logout"),
