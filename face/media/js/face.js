@@ -2,28 +2,8 @@
 function face_init() {
     refresh();
 $('#slide').cycle({
-    fx:      'custom',
-    cssBefore: {
-        left: 115,
-        top:  115,
-        width: 0,
-        height: 0,
-        opacity: 1,
-        display: 'block'
-    },
-    animOut: {
-        opacity: 0
-    },
-    animIn: {
-        left: 0,
-        top: 0,
-        width: 200,
-        height: 200
-    },
-    cssAfter: {
-        zIndex: 0
-    },
-    delay: -33000
+    fx:     'turnDown',
+    delay:  -40000
 });
 }
 
@@ -38,8 +18,8 @@ function opacity_img() {
 
 function refresh() {
     $.getJSON('/listp/', function(data){
-        row1 = '<span class="posted-style">' + data.picture1.favorable + ' point</span> <a href="#" class="picture_link" rel="prettyPhoto[gallery1]"><img  src=' + data.picture1.plink + ' alt="" /></a> <span class="posted-style"><a href="#">Partager</a></span> <span class="posted-style"><a href=' + data.picture1.plink + '><img src="" class="agrandir" alt="Agrandir" title="" /></span>';
-        row2 = '<span class="posted-style">' + data.picture2.favorable + ' point</span> <a href="#" class="picture_link" rel="prettyPhoto[gallery1]"><img  src=' + data.picture2.plink + ' alt="" /></a> <span class="posted-style"><a href="#">Partager</a></span> <span class="posted-style"><a href=' + data.picture2.plink + '><img src="" class="agrandir" alt="Agrandir" title="" /></span>';
+        row1 = '<span class="posted-style">' + data.picture1.favorable + ' point</span> <a rel="prettyPhoto" href="#" class="picture_link" ><img  src=' + data.picture1.plink + ' alt="" /></a> <span class="posted-style"><a href="#">Partager</a></span> <span class="posted-style"><a href=' + data.picture1.plink + '><img src="" class="agrandir" alt="Agrandir" title="" /></span>';
+        row2 = '<span class="posted-style">' + data.picture2.favorable + ' point</span> <a rel="prettyPhoto" href="#" class="picture_link" ><img  src=' + data.picture2.plink + ' alt="" /></a> <span class="posted-style"><a href="#">Partager</a></span> <span class="posted-style"><a href=' + data.picture2.plink + '><img src="" class="agrandir" alt="Agrandir" title="" /></span>';
 
         $("#p1").html(row1);
         $("#p2").html(row2);
@@ -59,11 +39,6 @@ function chow_image(){
     });
 }
 
-function alertp(){
-
-    alert("OK");
-}
-
 function vote(){
     $(".picture_link").click(function() {
         var link = $(this).children("img").attr('src');
@@ -78,8 +53,9 @@ function vote(){
 
 function is_star(){
         $.getJSON('/listp/', function(data){
-        star = '<div id="cbox1" class="chow_picture"><div id="slide" class="pics"><a  href=' + data.star.plink + '><img src=' + data.star.plink + ' alt="" /></a><span class="posted-style">' + data.star.favorable + ' point</span></div></div>';
-        $("#star").html(star);
+        star = '<div id="cbox1" class="chow_picture"><div id="slide" class="pics"><a rel="prettyPhoto" href=' + data.star.plink + '><img src=' + data.star.plink + ' alt="" /></a><span class="posted-style">' + data.star.favorable + ' point</span></div></div>';
+        $(".star").html(star);
+        $(".star").html(star);
 
     });
 }
