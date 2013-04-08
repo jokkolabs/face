@@ -18,8 +18,8 @@ function opacity_img() {
 
 function refresh() {
     $.getJSON('/listp/', function(data){
-        row1 = '<span class="posted-style">' + data.picture1.favorable + ' point</span> <a rel="prettyPhoto" href="#" class="picture_link" ><img  src=' + data.picture1.plink + ' alt="" /></a> <span class="posted-style"><a href="#">Partager</a></span> <span class="posted-style"><a href=' + data.picture1.plink + '><img src="" class="agrandir" alt="Agrandir" title="" /></span>';
-        row2 = '<span class="posted-style">' + data.picture2.favorable + ' point</span> <a rel="prettyPhoto" href="#" class="picture_link" ><img  src=' + data.picture2.plink + ' alt="" /></a> <span class="posted-style"><a href="#">Partager</a></span> <span class="posted-style"><a href=' + data.picture2.plink + '><img src="" class="agrandir" alt="Agrandir" title="" /></span>';
+        row1 = '<span class="posted-style">' + data.picture1.favorable + ' point</span> <a rel="prettyPhoto" href="#" class="picture_link" ><img  src=' + data.picture1.plink + ' alt="" /></a> <span class="posted-style"><a href="#">Partager</a></span> <span class="posted-style"><a href=' + data.picture1.plink + '><img src="face/face/media/css/down.png" class="agrandir" alt="Agrandir" title="" /></span>';
+        row2 = '<span class="posted-style">' + data.picture2.favorable + ' point</span> <a rel="prettyPhoto" href="#" class="picture_link" ><img  src=' + data.picture2.plink + ' alt="" /></a> <span class="posted-style"><a href="#">Partager</a></span> <span class="posted-style"><a href=' + data.picture2.plink + '><img src="{{ STATIC_URL }}css/down.png" class="agrandir" alt="Agrandir" title="" /></span>';
 
         $("#p1").html(row1);
         $("#p2").html(row2);
