@@ -1,4 +1,7 @@
-/** CSS **/
+/** CSS
+    Face jokkolabs Mali (yeleman)
+
+**/
 
 body {   background-color: #758D3C;
     /*background-image: linear-gradient(to bottom, #758D3C, #2A0004);*/
@@ -56,7 +59,7 @@ body {   background-color: #758D3C;
 #banner
 {
     color: #FFFFFF;
-    height: 265px;
+    height: 257px;
     overflow: hidden;
     padding-top: 6px;
     width: 599px;
@@ -69,54 +72,53 @@ body {   background-color: #758D3C;
     font-weight: 400;
 }
 
-#banner h2 span
-{
+#banner h2 span {
     font-weight: 700;
 }
 
-#banner p
-{
+#banner p {
     font-size: 14px;
     color: #cddaf8;
 }
 
-#banner a
-{
+#banner a {
     color: #FFFFFF;
 }
 
 /** List Style */
 
 
-ul.style1 .first
-{
+ul.style1 .first {
     margin-left: 0px;
 }
 
-.button-style
-{
+.button-style {
+    background: none repeat scroll 0 0 #AF2C54;
+    border: 1px solid #FCC2C1;
     clear: both;
     display: inline-block;
     margin-top: 30px;
-    padding: 10px 20px;
-    background: #af2c54;
+    padding: 7px;
     text-decoration: none;
-    border: 1px solid #FCC2C1;
 }
 
 .button-style:hover {
     background: #982648;
 }
 
-
 .posted-style {
-    color: #FFFFFF;
-    background: none repeat scroll 0 0 grey;
-    padding: 1px 3px;
-    text-decoration: none;
+    background: none repeat scroll 0 0 #252A0D;
+    color: #FFE4FF;
+    padding: 1px 2px;
 }
 
-/*face common*/
+.posted-stylef {
+    background: none repeat scroll 0 0 #252A0D;
+    color: #FFE4FF;
+    padding: 1px 2px;
+    vertical-align: top;
+}
+
 .navbar-inverse .navbar-inner {
     background-color: #1B1B1B;
     background-image: linear-gradient(to bottom, none, none);
@@ -125,8 +127,10 @@ ul.style1 .first
 }
 
 #refresh {
+    height: 1em;
     margin-left: 2em;
-    margin-top: 5em;
+    margin-top: 3em;
+    width: 6em;
 }
 .star {
     float: right;
@@ -136,6 +140,7 @@ ul.style1 .first
     max-width: 20em;
     min-height: 20em;
     min-width: 20em;
+    border: 1px solid white;
 }
 
 a {
@@ -146,12 +151,10 @@ a:hover
     text-decoration: none;
 }
 
-a img {
-    border: 1px solid white;
-}
 
-img .agrandir {
-    border: none;
+.zoom {
+    background: url(/media/css/images/zoom.png);
+    border: 0px solid;
     list-style-image: none;
 }
 
@@ -167,12 +170,22 @@ img.aligncenter {
     margin: 0px auto;
 }
 
-#dashboard #cbox2 img {
+#dashboard #p2 img, #dashboard #p1 img{
     max-height: 15em;
     max-width: 15em;
     min-height: 15em;
     min-width: 15em;
-    vertical-align: baseline;
+    vertical-align: top;
+    border: 1px solid white;
+}
+
+ul li img{
+    max-height: 5em;
+    max-width: 5em;
+    min-height: 5em;
+    min-width: 5em;
+    vertical-align: top;
+    border: 1px solid white;
 }
 
 #dashboard #refresh .img-circle {
@@ -243,3 +256,4 @@ ul li { display: inline; }
     width: 245px;
     /*margin-right: 20px;*/
 }
+.bsap a { float: left; }

@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load tinymce_tags %}
 {% block title %} face{% endblock %}
 {% block page-id %}dashboard{% endblock %}
 {% block content %}
@@ -9,24 +8,21 @@
         <h2 class="heading-title" style="text-align:center">Laquelle te plaît le plus <blink>?</blink></h2>
         <div class="row-fluid">
 
-            <div class="span5">
-                <div id="cbox2">
-                    <div id="p1" class="chow_picture">
-                            <!-- image de gauche -->
-                     </div>
-                </div>
+            <div class="span4">
+                <div id="p1" class="chow_picture">
+                        <!-- image de gauche -->
+                 </div>
             </div>
-            <div class="span2">
+            <div class="span3">
                 <div id="refresh" class="gallery clearfix">
-                    <a href="#"><img class="img-circle" src="{{ STATIC_URL }}css/images/refresh.png" onclick="refresh()"></img></a>
+                    <a href="#" ><img class="img-circle" src="{{ STATIC_URL }}css/images/refresh.png" onclick="refresh()"></img></a>
                 </div>
             </div>
-            <div class="span5">
-                <div id="cbox2">
-                    <div id="p2" class="chow_picture">
-                            <!-- image de droite -->
-                     </div>
-                </div>
+            <div class="span4">
+                <div id="p2" class="chow_picture">
+                        <!-- image de droite -->
+
+                 </div>
             </div>
         </div>
     </div>
