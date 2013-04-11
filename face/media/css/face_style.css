@@ -7,7 +7,7 @@ body {   background-color: #758D3C;
     /*background-image: linear-gradient(to bottom, #758D3C, #2A0004);*/
     background-color: #758D3C;
     background-image: linear-gradient(to bottom, #A769FF, #FFDFFA);
-    font-size: 12px;
+    /*font-size: 12px;*/
 }
 
 /** WRAPPER */
@@ -59,7 +59,7 @@ body {   background-color: #758D3C;
 #banner
 {
     color: #FFFFFF;
-    height: 257px;
+    height: 250px;
     overflow: hidden;
     padding-top: 6px;
     width: 599px;
@@ -97,8 +97,8 @@ ul.style1 .first {
     border: 1px solid #FCC2C1;
     clear: both;
     display: inline-block;
-    margin-top: 30px;
-    padding: 7px;
+    margin-top: 41px;
+    padding: 4px;
     text-decoration: none;
 }
 
@@ -109,11 +109,13 @@ ul.style1 .first {
 .posted-style {
     background: none repeat scroll 0 0 #252A0D;
     color: #FFE4FF;
-    padding: 1px 2px;
+    padding: 0 28px;
+    border: 0.2em outset silver;
 }
 
 .posted-stylef {
-    background: none repeat scroll 0 0 #252A0D;
+    background: none repeat scroll 0 0 #2A2715;
+    border: 1px outset silver;
     color: #FFE4FF;
     padding: 1px 2px;
     vertical-align: top;
@@ -128,18 +130,18 @@ ul.style1 .first {
 
 #refresh {
     height: 1em;
-    margin-left: 2em;
-    margin-top: 3em;
-    width: 6em;
+    margin-left: 3em;
+    margin-top: 6em;
+    width: 5em;
 }
 .star {
     float: right;
 }
 .star img {
-    max-height: 20em;
-    max-width: 20em;
-    min-height: 20em;
-    min-width: 20em;
+    max-height: 16em;
+    max-width: 16em;
+    min-height: 16em;
+    min-width: 16em;
     border: 1px solid white;
 }
 
@@ -189,12 +191,15 @@ ul li img{
 }
 
 #dashboard #refresh .img-circle {
-    background-color: white;
-    border-color: #666666;
-    border-radius: 500px 500px 500px 500px;
-    padding: 0.5em;
+    height: 90px;
+    padding: 1px;
+    width: 70px;
 }
 
+#dashboard #refresh .img-circle:hover {
+    height: 95px;
+    width: 80px;
+}
 #down {
     float: right;
     height: 5px;
@@ -253,7 +258,16 @@ ul li { display: inline; }
 #cbox1
 {
     float: left;
-    width: 245px;
-    /*margin-right: 20px;*/
+    width: 226px;
 }
+
 .bsap a { float: left; }
+
+.container {
+    width: 850px;
+}
+
+ul, ol {
+    margin: 0 0 7px 4px;
+    padding: 0;
+}

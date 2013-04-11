@@ -33,8 +33,7 @@ function face_init() {
 
 function opacity_img() {
 
-   $('a img').hover(
-   // function(){ $(this).stop().animate({ opacity : '1.9' }); },
+   $('picture_link a img').hover(
    function(){ $(this).stop().animate({ opacity : '.75' }); },
    function(){ $(this).stop().animate({ opacity : '1' }); }
   );
@@ -42,14 +41,14 @@ function opacity_img() {
 
 function refresh() {
     $.getJSON('/listp/', function(data){
-        row1 = '<span class="posted-stylef">' + data.picture1.favorable + '</span>' +
+        row1 = '<span class="posted-stylef">' + data.picture1.favorable + ' point(s)</span>' +
                '<a href="#" class="picture_link" >' + '<img  src=' + data.picture1.plink + ' alt="" /></a>' +
                '<span class="posted-style"><a href="#">Partager</a></span>' +
-               '<span class="posted-style"><a href=' + data.picture1.plink + '><img src="" class="zoom" alt="zoom" title="" /></span>';
-        row2 = '<span class="posted-stylef">' + data.picture2.favorable + '</span>' +
+               '<span class="posted-styled"><a href=' + data.picture1.plink + '><img src="" class="zoom" alt="zoom" title="" /></span>';
+        row2 = '<span class="posted-stylef">' + data.picture2.favorable + ' point(s)</span>' +
                '<a href="#" class="picture_link" >' + '<img  src=' + data.picture2.plink + ' alt="" /></a>' +
                '<span class="posted-style"><a href="#">Partager</a></span>' +
-               '<span class="posted-style"><a href=' + data.picture2.plink + '><img src="" class="zoom" alt="zoom" title="" /></span>';
+               '<span class="posted-styled"><a href=' + data.picture2.plink + '><img src="" class="zoom" alt="zoom" title="" /></span>';
 
         $("#p1").html(row1);
         $("#p2").html(row2);
@@ -81,9 +80,9 @@ function vote(){
 
 function is_star(){
         $.getJSON('/listp/', function(data){
-        star = '<div id="cbox1" class="chow_picture"><div id="slide" class="pics"><a href=' +
-                data.star.plink + '><img src=' + data.star.plink + ' alt="" /></a><span class="posted-style">' +
-                data.star.favorable + ' point(s)</span></div></div>';
+        star = '<div id="cbox1"><div id="slide" class="pics">' +
+               '<a href=' + data.star.plink + ' rel="prettyPhoto" ><img src=' + data.star.plink + ' alt="" /></a>' +
+               '<span class="posted-style">' + data.star.favorable + ' point(s)</span></div></div>';
         $(".star").html(star);
         $(".star").html(star);
     });
