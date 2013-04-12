@@ -28,16 +28,18 @@
             });
         </script>
     </head>
-    <div  id="banner-wrapper">{% include "_menu.html" %}</div>
-    <body class="container">
-        <div class="row-fluid">
-            <div class="span12">
-                <div id="{% block page-id %}{% endblock %}">
-                    {% block content %}
-                    {% endblock %}
+    <div class="container">
+        <div  id="banner-wrapper">{% include "_menu.html" %}</div>
+        <!-- <body> -->
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="{% block page-id %}{% endblock %}">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
                 </div>
             </div>
-        </div>
-    </body>
-    <div id="footer">{% include "_footer.html" %}</div>
+        <!-- </body> -->
+        <div id="footer">{% include "_footer.html" %}</div>
+    </div>
 </html>

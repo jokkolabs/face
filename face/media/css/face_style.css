@@ -3,13 +3,17 @@
 
 **/
 
-body {   background-color: #758D3C;
-    /*background-image: linear-gradient(to bottom, #758D3C, #2A0004);*/
-    background-color: #758D3C;
-    background-image: linear-gradient(to bottom, #A769FF, #FFDFFA);
-    /*font-size: 12px;*/
+body {
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#00004E) to(#FFDFFA)); /*old webkit*/
+    background: -webkit-linear-gradient(#00004E, #FFDFFA); /*new webkit*/
+    background: -moz-linear-gradient(#00004E, #FFDFFA); /*gecko*/
+    background: -ms-linear-gradient(#00004E, #FFDFFA); /*IE10 preview*/
+    background: -o-linear-gradient(#00004E, #FFDFFA); /*opera 11.10+*/
+    background: linear-gradient(#00004E, #FFDFFA); /*future CSS3 browsers*/
+    -pie-background: linear-gradient(#00004E, #FFDFFA); /*PIE*/
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#00004E', endColorstr='#FFDFFA'); /* IE6 & IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#00004E', endColorstr='#FFDFFA')"; /* IE8 */
 }
-
 /** WRAPPER */
 
 .clearfix {
@@ -148,14 +152,12 @@ ul.style1 .first {
 a {
     color: #FFFFFF;
 }
-a:hover
-{
+a:hover {
     text-decoration: none;
 }
 
-
 .zoom {
-    background: url(/media/css/images/zoom.png);
+    /*background: url(/media/css/images/zoom.png);*/
     border: 0px solid;
     list-style-image: none;
 }
