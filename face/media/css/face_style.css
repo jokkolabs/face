@@ -4,17 +4,41 @@
 **/
 
 body {
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#00004E) to(#FFDFFA)); /*old webkit*/
-    background: -webkit-linear-gradient(#00004E, #FFDFFA); /*new webkit*/
-    background: -moz-linear-gradient(#00004E, #FFDFFA); /*gecko*/
-    background: -ms-linear-gradient(#00004E, #FFDFFA); /*IE10 preview*/
-    background: -o-linear-gradient(#00004E, #FFDFFA); /*opera 11.10+*/
-    background: linear-gradient(#00004E, #FFDFFA); /*future CSS3 browsers*/
-    -pie-background: linear-gradient(#00004E, #FFDFFA); /*PIE*/
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#00004E', endColorstr='#FFDFFA'); /* IE6 & IE7 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#00004E', endColorstr='#FFDFFA')"; /* IE8 */
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#04172E) to(#FFFFFF)) no-repeat fixed 0 0 transparent; /*old webkit*/
+    background: -webkit-linear-gradient(#04172E, #FFFFFF) no-repeat fixed 0 0 transparent; /*new webkit*/
+    background: -moz-linear-gradient(#04172E, #FFFFFF) no-repeat fixed 0 0 transparent; /*gecko*/
+    background: -ms-linear-gradient(#04172E, #FFFFFF) no-repeat fixed 0 0 transparent; /*IE10 preview*/
+    background: -o-linear-gradient(#04172E, #FFFFFF) no-repeat fixed 0 0 transparent; /*opera 11.10+*/
+    background: linear-gradient(#04172E, #FFFFFF) no-repeat fixed 0 0 transparent; /*future CSS3 browsers*/
+    -pie-background: linear-gradient(#04172E, #FFFFFF) no-repeat fixed 0 0 transparent; /*PIE*/
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#04172E', endColorstr='#FFFFFF'); /* IE6 & IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#04172E', endColorstr='#FFFFFF')"; /* IE8 */
+
 }
+
+.navbar-inverse .navbar-inner {
+    border-color: #B6B6B6;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(to left, #FFFFFF) to(#070A18)) no-repeat fixed 0 0 transparent; /*old webkit*/
+    background: -webkit-linear-gradient(left, #070A18, #FFFFFF) no-repeat fixed 0 0 transparent; /*new webkit*/
+    background: -moz-linear-gradient(to left, #FFFFFF, #070A18) no-repeat fixed 0 0 transparent; /*gecko*/
+    background: -ms-linear-gradient(to left, #FFFFFF, #070A18) no-repeat fixed 0 0 transparent; /*IE10 preview*/
+    background: -o-linear-gradient(to left, #FFFFFF, #070A18) no-repeat fixed 0 0 transparent; /*opera 11.10+*/
+    background:  linear-gradient(to left, #FFFFFF, #070A18); /*future CSS3 browsers*/
+    -pie-background: linear-gradient(to left, #FFFFFF, #070A18) no-repeat fixed 0 0 transparent; /*PIE*/
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#FFFFFF', endColorstr='#070A18'); /* IE6 & IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#FFFFFF', endColorstr='#070A18')"; /* IE8 */
+}
+
+.navbar-inverse .nav .active > a, .navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus {
+    background-color: #484848;
+    height: 16px;
+    margin-top: 2px;
+}
+
 /** WRAPPER */
+.span9 {
+    border-right: 1px solid #D2D6EC;
+}
 
 .clearfix {
     clear: both;
@@ -22,46 +46,31 @@ body {
 
 /** PAGE */
 
-#page
-{
+#page {
     overflow: hidden;
 }
 
-
-#page .heading-title
-{
+#page .heading-title {
     margin-bottom: 2em !important;
 }
 
-#content img
-{
-/*    display: block;
-    width: 100%;
-    margin-bottom: 2em;*/
-}
-
-
 /* Footer */
 
-#footer
-{
+#footer {
     overflow: hidden;
     padding: 5em 0em;
     color: powderblue;
 }
 
-#footer p
-{
+#footer p {
     font-size: 12px;
 }
 
-#footer a
-{
+#footer a {
     color: #999999;
 }
 
-#banner
-{
+#banner {
     color: #FFFFFF;
     height: 250px;
     overflow: hidden;
@@ -86,19 +95,18 @@ body {
 }
 
 #banner a {
-    color: #FFFFFF;
+    color: #F6F6F6;
 }
 
 /** List Style */
-
 
 ul.style1 .first {
     margin-left: 0px;
 }
 
 .button-style {
-    background: none repeat scroll 0 0 #AF2C54;
-    border: 1px solid #FCC2C1;
+    background: none repeat scroll 0 0 #427AAE;
+    border: 1px solid #4295BB;
     clear: both;
     display: inline-block;
     margin-top: 41px;
@@ -107,29 +115,21 @@ ul.style1 .first {
 }
 
 .button-style:hover {
-    background: #982648;
+    background: #0095D9;
 }
 
 .posted-style {
-    background: none repeat scroll 0 0 #252A0D;
-    color: #FFE4FF;
-    padding: 0 28px;
-    border: 0.2em outset silver;
+    background: none repeat scroll 0 0 #427AAE;
+    border: 1px solid #8EB4B9;
+    color: #FFFEFF;
 }
 
 .posted-stylef {
-    background: none repeat scroll 0 0 #2A2715;
-    border: 1px outset silver;
-    color: #FFE4FF;
+    background: none repeat scroll 0 0 #427AAE;
+    border: 1px solid #8EB4B9;
+    color: #FFFEFF;
     padding: 1px 2px;
     vertical-align: top;
-}
-
-.navbar-inverse .navbar-inner {
-    background-color: #1B1B1B;
-    background-image: linear-gradient(to bottom, none, none);
-    background-repeat: repeat-x scroll 0 0 transparent;
-    border-color: #FFFFFF;
 }
 
 #refresh {
@@ -208,8 +208,7 @@ ul li img{
     margin-right: 3em;
 }
 
-a:hover
-{
+a:hover {
     text-decoration: none;
     color: #d0d0d0;
 }
@@ -227,7 +226,7 @@ h1 {
     font-family: 'Gentium Basic',serif;
     font-style: italic; margin: 0 0 10px;
     padding-top: 0;
-    text-shadow: 1px 4px 6px #5E4343;
+    text-shadow: 2px 1px 1px #E2CCFA;
 }
 
 h2, h3, h4, h5, .carousel-caption .lead {
@@ -257,8 +256,7 @@ ul li { display: inline; }
     padding: 30px;
     width: 1000px; }
 
-#cbox1
-{
+#cbox1 {
     float: left;
     width: 226px;
 }

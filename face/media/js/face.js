@@ -1,5 +1,11 @@
 
 function face_init() {
+
+    refresh();
+    $('#slide').cycle({
+            fx:     'turnDown',
+            delay:  -5000
+    });
     $(document).ready(function(){
         $("area[rel^='prettyPhoto']").prettyPhoto();
 
@@ -24,11 +30,6 @@ function face_init() {
       (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
     })();
 
-    refresh();
-    $('#slide').cycle({
-            fx:     'turnDown',
-            delay:  -5000
-    });
 }
 
 function opacity_img() {
@@ -50,12 +51,12 @@ function refresh() {
                '<span class="posted-style"><a href="#">Partager</a></span>' +
                '<span class="posted-style"><a class="zoom" href=' + data.picture2.plink + '><img src=""  alt="zoom" title="" /></span>';
 
+        is_star();
         $("#p1").html(row1);
         $("#p2").html(row2);
         chow_image();
         vote();
         opacity_img();
-        is_star();
     });
 }
 
@@ -73,17 +74,16 @@ function vote(){
         $.post('/vote/', {'link': link}, function(data) {
                 display_alert(data.return, data.return_html, 2);
             }, "json");
-        refresh();
         is_star();
+        refresh();
     });
 }
 
 function is_star(){
         $.getJSON('/listp/', function(data){
-        star = '<div id="cbox1"><div id="slide" class="pics">' +
-               '<a href=' + data.star.plink + ' rel="prettyPhoto" ><img src=' + data.star.plink + ' alt="" /></a>' +
-               '<span class="posted-style">' + data.star.favorable + ' point(s)</span></div></div>';
-        $(".star").html(star);
+        star = '<div id="cbox1"><div id="slide" class="pics"><ul class="gallery clearfix">' +
+               '<a href=' + data.star.plink + ' rel="prettyPhoto[gallery1]" ><img src=' + data.star.plink + ' alt="" /></a>' +
+               '<span class="posted-style">' + data.star.favorable + ' point(s)</span></ul></div></div>';
         $(".star").html(star);
     });
 }
