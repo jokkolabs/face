@@ -44,11 +44,11 @@ function refresh() {
     $.getJSON('/listp/', function(data){
         row1 = '<span class="posted-stylef">' + data.picture1.favorable + ' point(s)</span>' +
                '<a href="#" class="picture_link" >' + '<img  src=' + data.picture1.plink + ' alt="" /></a>' +
-               '<span class="posted-style"><a href="#">Partager</a></span>' +
+               '<span class="posted-style"><a  class="partager"href="#">Partager</a></span>' +
                '<span class="posted-style"><a href=' + data.picture1.plink + '><img src="" class="zoom" alt="zoom" title="" /></span>';
         row2 = '<span class="posted-stylef">' + data.picture2.favorable + ' point(s)</span>' +
                '<a href="#" class="picture_link" >' + '<img  src=' + data.picture2.plink + ' alt="" /></a>' +
-               '<span class="posted-style"><a href="#">Partager</a></span>' +
+               '<span class="posted-style"><a class="partager" href="#">Partager</a></span>' +
                '<span class="posted-style"><a class="zoom" href=' + data.picture2.plink + '><img src=""  alt="zoom" title="" /></span>';
 
         is_star();

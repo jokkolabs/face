@@ -5,15 +5,13 @@
 
 
 <div class="row-fluid">
-    <div class="span9" style="border-right:1px solid #E5E5E6">
-        <h2 class="heading-title" style="text-align:center">PHOTOS <blink></blink></h2>
-        <div class="row-fluid">
-            <ul class="gallery clearfix">
-                {% for pict in picturelist %}
+    <h2 class="heading-title" style="text-align:center">PHOTOS <blink></blink></h2>
+    <div class="row-fluid">
+        <ul class="gallery clearfix">
+            {% for pict in picturelist %}
                 <li><a href="{{pict.link}}" rel="prettyPhoto[gallery1]"><img src="{{pict.link}}" alt="{{ pict.favorable }} points" /></a></li>
-                {%endfor%}
-            </ul>
-        </div>
+            {%endfor%}
+        </ul>
     </div>
 </div>
 

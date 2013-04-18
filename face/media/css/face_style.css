@@ -36,7 +36,7 @@ body {
 }
 
 /** WRAPPER */
-.span9 {
+.row-fluid .span10 {
     border-right: 1px solid #D2D6EC;
 }
 
@@ -143,8 +143,8 @@ ul.style1 .first {
     margin-right: 5px;
 }
 .star img {
-    border: 1px solid #FFFFFF !important;
-    box-shadow: 0 2px 3px 3px #427AAE !important;
+    border: 2px solid #FFFFFF !important;
+    box-shadow: 0 2px 18px 4px #4085AE !important;
     max-height: 16em;
     max-width: 16em;
     min-height: 16em;
@@ -159,7 +159,6 @@ a:hover {
 }
 
 .zoom {
-    /*background: url(/media/css/images/zoom.png);*/
     border: 0px solid;
     list-style-image: none;
 }
@@ -275,4 +274,18 @@ ul li { display: inline; }
 ul, ol {
     margin: 0 0 7px 4px;
     padding: 0;
+}
+
+
+.partager {
+    text-decoration: none;
+    background: none repeat scroll 0 0 #427AAE;
+    border: 1px solid #8EB4B9;
+    color: #FFFEFF;
+}
+
+.partager:hover {
+    background: none repeat scroll 0 0 #0095D9;
+    border: 1px solid #8EB4B9;
+    color: #FFFEFF;
 }
