@@ -2,10 +2,6 @@
 function face_init() {
 
     refresh();
-    $('#slide').cycle({
-            fx:     'turnDown',
-            delay:  -5000
-    });
     $(document).ready(function(){
         $("area[rel^='prettyPhoto']").prettyPhoto();
 
@@ -81,7 +77,7 @@ function vote(){
 
 function is_star(){
         $.getJSON('/listp/', function(data){
-        star = '<div id="cbox1"><div id="slide" class="pics"><ul class="gallery clearfix">' +
+        star = '<div id="cbox1"><div class="pics"><ul class="gallery clearfix">' +
                '<a href=' + data.star.plink + ' rel="prettyPhoto[gallery1]" ><img src=' + data.star.plink + ' alt="" /></a>' +
                '<span class="posted-style">' + data.star.favorable + ' point(s)</span></ul></div></div>';
         $(".star").html(star);

@@ -142,14 +142,6 @@ ul.style1 .first {
     float: right;
     margin-right: 5px;
 }
-.star img {
-    border: 2px solid #FFFFFF !important;
-    box-shadow: 0 2px 18px 4px #4085AE !important;
-    max-height: 16em;
-    max-width: 16em;
-    min-height: 16em;
-    min-width: 16em;
-}
 
 a {
     color: #FFFFFF;
@@ -175,6 +167,15 @@ img.aligncenter {
     margin: 0px auto;
 }
 
+.star img {
+    border: 1.2px solid #FFFFFF !important;
+    box-shadow: 0 1px 6px 2px #4085AE !important;
+    max-height: 16em;
+    max-width: 16em;
+    min-height: 16em;
+    min-width: 16em;
+}
+
 #dashboard #p2 img, #dashboard #p1 img{
     max-height: 15em;
     max-width: 15em;
@@ -183,6 +184,15 @@ img.aligncenter {
     vertical-align: top;
     border: 1px solid #FFFFFF !important;
     box-shadow: 0 1px 3px 1px #666666 !important;
+}
+#dashboard #p2 img:hover, #dashboard #p1 img:hover {
+    border: 1.2px solid #FFFFFF !important;
+    box-shadow: 0 1px 6px 2px #4085AE !important;
+    max-height: 15em;
+    max-width: 15em;
+    min-height: 15em;
+    min-width: 15em;
+    vertical-align: top;
 }
 
 ul li img{
@@ -196,7 +206,7 @@ ul li img{
     vertical-align: top;
 }
 
-#dashboard #refresh .img-circle {
+/*#dashboard #refresh .img-circle {
     height: 90px;
     padding: 1px;
     width: 70px;
@@ -205,7 +215,8 @@ ul li img{
 #dashboard #refresh .img-circle:hover {
     height: 95px;
     width: 80px;
-}
+}*/
+
 #down {
     float: right;
     height: 5px;
