@@ -6,47 +6,36 @@ import json
 
 from random import choice
 
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.views.decorators.http import require_POST
-from django.views.decorators.csrf import csrf_exempt
-
-from face.models import Picture
+from flask import render_template, request
+from utils import rset, rget
 
 
-def dashboard(request):
-    context = {"category": 'dashboard', 'user': request.user}
-    pictures = [picture for picture in Picture.objects.all()]
-    start = Picture.objects.order_by("-favorable")[0]
+def dashboard():
+    return render_template('dashboard.html')
+
+
+def choosepict(*args, **kwargs):
+    pictures = [picture for picture in rget("pictures")]
     if pictures:
         picture1 = choice(pictures)
         pictures.pop(pictures.index(picture1))
         picture2 = choice(pictures)
-        context.update({"picture1": picture1, "picture2": picture2,
-                        "start": start})
+        star = rget("bestimg")
+        data = {"picture1": rget(picture1), "picture2": rget(picture2),
+                "star": rget(star), "idp1": picture1, "idp2": picture2}
 
-    return render(request, 'dashboard.html', context)
-
-
-def picturelist(*args, **kwargs):
-    pictures = [picture for picture in Picture.objects.all()]
-    if pictures:
-        picture1 = choice(pictures)
-        pictures.pop(pictures.index(picture1))
-        picture2 = choice(pictures)
-        star = Picture.objects.order_by("-favorable")[0]
-        data = {"picture1": picture1.to_dict(), "picture2": picture2.to_dict(),
-                "star": star.to_dict()}
-
-    return HttpResponse(json.dumps(data))
+    return json.dumps(data)
 
 
-@require_POST
-@csrf_exempt
-def vote(request):
+def vote(*args, **kwargs):
     data = {}
-    picture_link = request.POST.get('link', None)
-    p = Picture.objects.get(link=picture_link)
-    p.favorable += 1
-    p.save()
-    return HttpResponse(json.dumps(data))
+    picture_link = request.form.get('plink', None)
+    pict = rget(picture_link)
+    pict["favorable"] += 1
+    rset(picture_link, pict)
+
+    star = rget("bestimg")
+    if rget(star)["favorable"] < pict["favorable"]:
+        rset("bestimg", picture_link)
+
+    return json.dumps(data)

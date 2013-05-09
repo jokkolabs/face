@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block title %} face{% endblock %}
-{% block page-id %}dashboard{% endblock %}
 {% block content %}
 
 <div class="row-fluid">
@@ -8,17 +7,17 @@
     <div class="row-fluid">
 
         <div class="span4">
-            <div id="p1" class="chow_picture">
+            <div id="p1" class="gallery clearfix">
                     <!-- image de gauche -->
              </div>
         </div>
         <div class="span3">
             <div id="refresh">
-                <a href="#" ><img class="img-circle" src="{{ STATIC_URL }}css/images/refresh.png" onclick="refresh()"></img></a>
+                <a href="#" ><img class="img-circle" src="/media/css/images/refresh.png" onclick="refresh()"></img></a>
             </div>
         </div>
         <div class="span4">
-            <div id="p2" class="chow_picture">
+            <div id="p2" class="gallery clearfix">
                     <!-- image de droite -->
              </div>
         </div>

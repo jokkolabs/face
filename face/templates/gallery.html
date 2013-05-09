@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% block title %} face{% endblock %}
-{% block page-id %}gallery{% endblock %}
 {% block content %}
 
-
+<script type="text/javascript">
+    $(document).ready(function(){
+        showgallery();
+    });
+</script>
 <div class="row-fluid">
     <h2 class="heading-title" style="text-align:center">PHOTOS <blink></blink></h2>
     <div class="row-fluid">
         <ul class="gallery clearfix">
-            {% for pict in picturelist %}
-                <li><a href="{{pict.link}}" rel="prettyPhoto[gallery1]"><img src="{{pict.link}}" alt="{{ pict.favorable }} points" /></a></li>
-            {%endfor%}
         </ul>
     </div>
 </div>

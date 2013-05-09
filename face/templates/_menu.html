@@ -5,14 +5,16 @@
 <!-- <div id="banner"> -->
 <div id="banner">
     <h1><a href="#">Face</a></h1>
-    <p>This is <strong>SimpleCorp </strong>, a free, fully standards-compliant CSS template designed by <a href="http://www.fad.org">FCT</a>.  The photo used in this template is from <a href="http://fad.com/">Fotogrph</a>.</p>
+    <p>This is <strong>SimpleCorp </strong>, a free, fully standards-compliant CSS template designed by <a href="http://www.fad.org">FAD</a>.  The photo used in this template is from <a href="http://fad.com/">Fotogrph</a>.</p>
     <ol class="style1">
         <li><a href="#">Integer sit amet pede vel arcu aliquet pretium.</a></li>
         <li><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</a></li>
         <li><a href="#">Phasellus nec erat sit amet nibh pellentesque congue.</a></li>
     </ol>
-    <div id="down" id="twTexteVertical"> <marquee behavior="scroll" direction="down"> <img src="{{STATIC_URL}}css/images/down.png" alt="" /></marquee></div>
-    <a href="#" class="button-style"><strong>Connexion facebook</strong></a>
+    <div id="down" id="twTexteVertical"> <marquee behavior="scroll" direction="down"> <img src="media/css/images/down.png" alt="" /></marquee></div>
+    <div class="gallery clearfix">
+    <a href="#" rel="prettyPhoto[iframe]" class="button-style"><strong>Connexion Facebook</strong></a>
+    </div>
 </div>
 <div class="navbar-wrapper">
     <div class="navbar navbar-inverse">
@@ -24,17 +26,17 @@
         </button>
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li {% if category = 'dashboard' %} class="active"{% endif %}><a class="" href="{% url 'dashboard' %}"><strong>Accueil</strong></a></li>
+            <li {% if category == 'dashboard' %} class="active"{% endif %}><a class="" href="{{ url_for('dashboard') }}"><strong>Accueil</strong></a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Albums <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li {% if category = '' %} class="active"{% endif %} class="nav-header">Photo</li>
-                <li {% if category = 'gallery' %} class="active"{% endif %}><a href="{% url 'gallery' %}">Classements par point</a></li>
+                <li {% if category == '' %} class="active"{% endif %} class="nav-header">Photo</li>
+                <li {% if category == 'gallery' %} class="active"{% endif %}><a href="{{ url_for('gallery') }}">Classements par point</a></li>
                 <li class="divider"></li>
               </ul>
             </li>
-            <li {% if category = 'about' %} class="active"{% endif %}><a href="#about">À propos</a></li>
-            <li {% if category = 'contact' %} class="active"{% endif %}><a href="#contact">Contacte</a></li>
+            <li {% if category == 'about' %} class="active"{% endif %}><a href="#about">À propos</a></li>
+            <li {% if category == 'contact' %} class="active"{% endif %}><a href="#contact">Contacte</a></li>
 
           </ul>
         </div><!--/.nav-collapse -->

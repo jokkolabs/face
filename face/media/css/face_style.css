@@ -67,7 +67,7 @@ body {
 }
 
 #footer a {
-    color: #999999;
+    color: #4A6DD3;
 }
 
 #banner {
@@ -120,8 +120,11 @@ ul.style1 .first {
 
 .posted-style {
     background: none repeat scroll 0 0 #427AAE;
-    border: 1px solid #8EB4B9;
-    color: #FFFEFF;
+    border: 1px solid #4295BB;
+    clear: both;
+    display: inline-table;
+    margin-right: 6px;
+    margin-top: 9px;
 }
 
 .posted-stylef {
@@ -132,27 +135,33 @@ ul.style1 .first {
     vertical-align: top;
 }
 
+.zoom:hover, .partager:hover {
+    background: none repeat scroll 0 0 #0095D9;
+    border: 1px solid #8EB4B9;
+    color: #FFFEFF;
+}
+
+
+.zoom, .partager {
+    text-decoration: none;
+    background: none repeat scroll 0 0 #427AAE;
+    border: 1px solid #8EB4B9;
+    color: #FFFEFF;
+}
+
 #refresh {
     height: 1em;
     margin-left: 3em;
     margin-top: 6em;
     width: 5em;
 }
-.star {
-    float: right;
-    margin-right: 5px;
-}
+
 
 a {
     color: #FFFFFF;
 }
 a:hover {
     text-decoration: none;
-}
-
-.zoom {
-    border: 0px solid;
-    list-style-image: none;
 }
 
 img.alignleft {
@@ -167,6 +176,15 @@ img.aligncenter {
     margin: 0px auto;
 }
 
+.star {
+    float: right;
+    font-size: 91%;
+    margin-right: -1em;
+    margin-top: 48px;
+    top: 3em;
+    transform: rotate(5deg);
+}
+
 .star img {
     border: 1.2px solid #FFFFFF !important;
     box-shadow: 0 1px 6px 2px #4085AE !important;
@@ -176,7 +194,7 @@ img.aligncenter {
     min-width: 16em;
 }
 
-#dashboard #p2 img, #dashboard #p1 img{
+.span4 #p2 img, .span4 #p1 img{
     max-height: 15em;
     max-width: 15em;
     min-height: 15em;
@@ -185,7 +203,8 @@ img.aligncenter {
     border: 1px solid #FFFFFF !important;
     box-shadow: 0 1px 3px 1px #666666 !important;
 }
-#dashboard #p2 img:hover, #dashboard #p1 img:hover {
+
+.span4 #p2 img:hover, .span4 #p1 img:hover {
     border: 1.2px solid #FFFFFF !important;
     box-shadow: 0 1px 6px 2px #4085AE !important;
     max-height: 15em;
@@ -195,7 +214,7 @@ img.aligncenter {
     vertical-align: top;
 }
 
-ul li img{
+.row-fluid ul li img{
     border: 1px solid #FFFFFF !important;
     box-shadow: 0 1px 3px 1px #666666 !important;
     margin: 4px;
@@ -206,26 +225,10 @@ ul li img{
     vertical-align: top;
 }
 
-/*#dashboard #refresh .img-circle {
-    height: 90px;
-    padding: 1px;
-    width: 70px;
-}
-
-#dashboard #refresh .img-circle:hover {
-    height: 95px;
-    width: 80px;
-}*/
-
 #down {
     float: right;
     height: 5px;
     margin-right: 3em;
-}
-
-a:hover {
-    text-decoration: none;
-    color: #d0d0d0;
 }
 
 #yoxview_menuPanel {
@@ -251,7 +254,6 @@ h2, h3, h4, h5, .carousel-caption .lead {
     padding-bottom: 19px;
     text-shadow: 3px 0px 0px rgba(0, 0, 0, 0.3);
 }
-
 
 p { font-size: 1.2em; }
 
@@ -285,18 +287,4 @@ ul li { display: inline; }
 ul, ol {
     margin: 0 0 7px 4px;
     padding: 0;
-}
-
-
-.partager {
-    text-decoration: none;
-    background: none repeat scroll 0 0 #427AAE;
-    border: 1px solid #8EB4B9;
-    color: #FFFEFF;
-}
-
-.partager:hover {
-    background: none repeat scroll 0 0 #0095D9;
-    border: 1px solid #8EB4B9;
-    color: #FFFEFF;
 }

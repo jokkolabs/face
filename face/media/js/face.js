@@ -1,7 +1,69 @@
+/*
+  maintainer: Fadiga
+
+*/
 
 function face_init() {
-
     refresh();
+    vote();
+    pretty();
+}
+
+function refresh() {
+    $.getJSON('/choosepict', function(data){
+      var pict1 = data.picture1;
+      var pict2 = data.picture2;
+
+        row1 = '<span class="posted-stylef">' + pict1.favorable + ' point(s)</span>' +
+               '<a href="#" class="picture_link" >' + '<img .idp=' + data.idp1 + ' src=' + pict1.plink + ' alt="" /></a>' +
+               '<span class="posted-style"><a  class="partager"href="#">Partager</a></span>' +
+               '<span class="posted-style"><a class="zoom" href=' + pict1.plink + ' alt="zoom" rel="prettyPhoto[gallery1]"><strong>zoom</strong></span>';
+        row2 = '<span class="posted-stylef">' + pict2.favorable + ' point(s)</span>' +
+               '<a href="#" class="picture_link" >' + '<img .idp=' + data.idp2 + ' src=' + pict2.plink + ' alt="" /></a>' +
+               '<span class="posted-style"><a class="partager" href="#">Partager</a></span>' +
+               '<span class="posted-style"><a class="zoom" href=' + pict2.plink + ' alt="zoom" rel="prettyPhoto[gallery1]"><strong>zoom</strong></span>';
+
+        $("#p1").html(row1);
+        $("#p2").html(row2);
+        is_star();
+    });
+}
+
+function vote(){
+    $(".picture_link").click(function() {
+        var plink = $(this).children("img").attr('.idp');
+        $.post('/vote', {'plink': plink}, function(data) {
+                display_alert(data.return, data.return_html, 2);
+            }, "json");
+        refresh();
+    });
+}
+
+function is_star(){
+    $.getJSON('/choosepict', function(data){
+        var pstar = data.star;
+        star = '<div id="cbox1"><ul class="gallery clearfix"><li><a href=' +
+              pstar.plink + ' rel="prettyPhoto"><img src=' +
+              pstar.plink + ' alt="" /></a></li></ul>' + '<span class="posted-stylef">' +
+              pstar.favorable + ' point(s)</span></div></div>';
+        $(".star").html(star);
+        pretty();
+    });
+}
+
+function showgallery(){
+    $.getJSON('/picturelist', function(all_pictures){
+      $.each(all_pictures, function(key, data) {
+        row = '<li><a title="' + data.favorable + ' point(s)" href="' + data.plink + '" rel="prettyPhoto[gallery1]"><img src="' +
+              data.plink + '" alt="' + data.favorable + ' point(s)" /></a></li>';
+        $(".row-fluid ul").append(row);
+      });
+      pretty();
+    });
+}
+
+function pretty(){
+
     $(document).ready(function(){
         $("area[rel^='prettyPhoto']").prettyPhoto();
 
@@ -25,61 +87,4 @@ function face_init() {
          bsa.src = '//s3.buysellads.com/ac/bsa.js';
       (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
     })();
-
-}
-
-function opacity_img() {
-
-   $('picture_link a img').hover(
-   function(){ $(this).stop().animate({ opacity : '.75' }); },
-   function(){ $(this).stop().animate({ opacity : '1' }); }
-  );
-}
-
-function refresh() {
-    $.getJSON('/listp/', function(data){
-        row1 = '<span class="posted-stylef">' + data.picture1.favorable + ' point(s)</span>' +
-               '<a href="#" class="picture_link" >' + '<img  src=' + data.picture1.plink + ' alt="" /></a>' +
-               '<span class="posted-style"><a  class="partager"href="#">Partager</a></span>' +
-               '<span class="posted-style"><a href=' + data.picture1.plink + '><img src="" class="zoom" alt="zoom" title="" /></span>';
-        row2 = '<span class="posted-stylef">' + data.picture2.favorable + ' point(s)</span>' +
-               '<a href="#" class="picture_link" >' + '<img  src=' + data.picture2.plink + ' alt="" /></a>' +
-               '<span class="posted-style"><a class="partager" href="#">Partager</a></span>' +
-               '<span class="posted-style"><a class="zoom" href=' + data.picture2.plink + '><img src=""  alt="zoom" title="" /></span>';
-
-        is_star();
-        $("#p1").html(row1);
-        $("#p2").html(row2);
-        chow_image();
-        vote();
-        opacity_img();
-    });
-}
-
-function chow_image(){
-    $(".chow_picture").yoxview({
-        lang: "fr",
-        backgroundColor: "#000099",
-        // autoPlay: true
-    });
-}
-
-function vote(){
-    $(".picture_link").click(function() {
-        var link = $(this).children("img").attr('src');
-        $.post('/vote/', {'link': link}, function(data) {
-                display_alert(data.return, data.return_html, 2);
-            }, "json");
-        is_star();
-        refresh();
-    });
-}
-
-function is_star(){
-        $.getJSON('/listp/', function(data){
-        star = '<div id="cbox1"><div class="pics"><ul class="gallery clearfix">' +
-               '<a href=' + data.star.plink + ' rel="prettyPhoto[gallery1]" ><img src=' + data.star.plink + ' alt="" /></a>' +
-               '<span class="posted-style">' + data.star.favorable + ' point(s)</span></ul></div></div>';
-        $(".star").html(star);
-    });
 }

@@ -2,17 +2,24 @@
 # encoding=utf-8
 # maintainer: Fadiga
 
-from django.shortcuts import render
+import json
 
-from face.models import Picture
+from flask import render_template
+from utils import rget
 
 
-def gallery(request):
-    context = {"category": 'gallery', 'user': request.user}
+def gallery():
+    context = {"category": 'gallery'}
 
-    picturelist = Picture.objects.order_by("-favorable")
-    start = Picture.objects.order_by("-favorable")[0]
+    star = rget("bestimg")
+    picturelist = [picture for picture in rget("pictures")]
     context.update({"picturelist": picturelist,
-                    "start": start})
+                    "start": star})
+    return render_template('gallery.html', **context)
 
-    return render(request, 'gallery.html', context)
+
+def picturelist(*args, **kwargs):
+    data = {}
+    for pict in rget('pictures'):
+        data[pict] = rget(pict)
+    return json.dumps(data)
