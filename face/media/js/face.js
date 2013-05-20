@@ -26,6 +26,7 @@ function refresh() {
         $("#p2").html(row2);
         is_star();
         vote();
+        pretty();
     });
 }
 
@@ -75,7 +76,7 @@ function pretty(){
             changepicturecallback: function(){ initialize(); }
         });
 
-        $.prettyPhoto.open(linkurl+'?iframe=true&amp;width=100%&amp;height=100%',title);
+        // $.prettyPhoto.open(linkurl+'?iframe=true&amp;width=100%&amp;height=100%',title);
         $("#custom_content a[rel^='prettyPhoto']:last").prettyPhoto({
             custom_markup: '<div id="bsap_1259344" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6"></div><div id="bsap_1237859" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6" style="height:260px"></div><div id="bsap_1251710" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6"></div>',
             changepicturecallback: function(){ _bsap.exec(); }

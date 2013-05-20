@@ -7,7 +7,7 @@ import json
 from random import choice
 
 from flask import render_template, request
-from utils import rset, rget
+from utils import rset, rget, Pictures, Best_imag
 
 
 def dashboard():
@@ -15,27 +15,36 @@ def dashboard():
 
 
 def choosepict(*args, **kwargs):
-    pictures = [picture for picture in rget("pictures")]
+    # La liste de tout les images (liste de dict)
+    pictures = [picture for picture in Pictures.find()]
+
     if pictures:
+        #choix de 1ere image
         picture1 = choice(pictures)
+        # on enleve de la liste
         pictures.pop(pictures.index(picture1))
+        # 2ème choix
         picture2 = choice(pictures)
-        star = rget("bestimg")
-        data = {"picture1": rget(picture1), "picture2": rget(picture2),
-                "star": rget(star), "idp1": picture1, "idp2": picture2}
+        # récupération de la meilleur image
+        id_best = Best_imag.find_one().get('best')
+        best = Pictures.find_one({"_id": id_best})
+
+        data = {"picture1": picture1, "picture2": picture2, "star": best,
+                "idp1": picture1.get('_id'), "idp2": picture2.get('_id')}
 
     return json.dumps(data)
 
 
 def vote(*args, **kwargs):
     data = {}
-    picture_link = request.form.get('plink', None)
-    pict = rget(picture_link)
-    pict["favorable"] += 1
-    rset(picture_link, pict)
-
-    star = rget("bestimg")
-    if rget(star)["favorable"] < pict["favorable"]:
-        rset("bestimg", picture_link)
+    id_pict = request.form.get('plink', None)
+    pict = Pictures.find_one({"_id": id_pict})
+    new_value = pict["favorable"] + 1
+    Pictures.update({"_id": id_pict},
+                    {"$set": {"favorable": new_value}})
+    id_best = Best_imag.find_one().get('best')
+    pict_best = Pictures.find_one({"_id": id_best})
+    if pict_best.get("favorable") < Pictures.find_one({"_id": id_pict}):
+        Best_imag.update({"_id": "star"}, {"$set": {"best": id_pict}})
 
     return json.dumps(data)

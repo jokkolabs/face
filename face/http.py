@@ -29,4 +29,4 @@ if __name__ == '__main__':
         http_port = int(sys.argv[1])
     except:
         http_port = 5000
-    app.run(debug=True, port=http_port)
+    app.run(debug=True, port=http_port, host='0.0.0.0')
