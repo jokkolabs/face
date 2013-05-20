@@ -11,7 +11,8 @@ from utils import Pictures, Best_imag
 
 
 def dashboard():
-    return render_template('dashboard.html')
+    context = {"category": 'dashboard'}
+    return render_template('dashboard.html', **context)
 
 
 def choosepict(*args, **kwargs):

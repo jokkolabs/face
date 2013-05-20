@@ -3,6 +3,7 @@
 # maintainer: Fadiga
 
 import json
+import pymongo
 
 from flask import render_template
 from utils import Pictures, Best_imag
@@ -19,6 +20,6 @@ def gallery():
 
 def picturelist(*args, **kwargs):
     data = {}
-    for pict in Pictures.find():
+    for pict in Pictures.find().sort([['favorable', pymongo.DESCENDING]]):
         data[pict.get('_id')] = pict
     return json.dumps(data)
