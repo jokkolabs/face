@@ -5,21 +5,20 @@
 import json
 
 from flask import render_template
-from utils import rget
+from utils import Pictures, Best_imag
 
 
 def gallery():
     context = {"category": 'gallery'}
 
-    star = rget("bestimg")
-    picturelist = [picture for picture in rget("pictures")]
-    context.update({"picturelist": picturelist,
-                    "start": star})
+    id_best = Best_imag.find_one().get('best')
+    best = Pictures.find_one({"_id": id_best})
+    context.update({"star": best})
     return render_template('gallery.html', **context)
 
 
 def picturelist(*args, **kwargs):
     data = {}
-    for pict in rget('pictures'):
-        data[pict] = rget(pict)
+    for pict in Pictures.find():
+        data[pict.get('_id')] = pict
     return json.dumps(data)

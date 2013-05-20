@@ -7,7 +7,7 @@ import json
 from random import choice
 
 from flask import render_template, request
-from utils import rset, rget, Pictures, Best_imag
+from utils import Pictures, Best_imag
 
 
 def dashboard():
@@ -44,7 +44,7 @@ def vote(*args, **kwargs):
                     {"$set": {"favorable": new_value}})
     id_best = Best_imag.find_one().get('best')
     pict_best = Pictures.find_one({"_id": id_best})
-    if pict_best.get("favorable") < Pictures.find_one({"_id": id_pict}):
+    if pict_best.get("favorable") < new_value:
         Best_imag.update({"_id": "star"}, {"$set": {"best": id_pict}})
 
     return json.dumps(data)
