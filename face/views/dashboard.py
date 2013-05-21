@@ -38,14 +38,14 @@ def choosepict(*args, **kwargs):
 
 def vote(*args, **kwargs):
     data = {}
-    id_pict = request.form.get('plink', None)
+    id_pict = request.form.get('url', None)
     pict = Pictures.find_one({"_id": id_pict})
-    new_value = pict["favorable"] + 1
+    new_value = pict["vote"] + 1
     Pictures.update({"_id": id_pict},
-                    {"$set": {"favorable": new_value}})
+                    {"$set": {"vote": new_value}})
     id_best = Best_imag.find_one().get('best')
     pict_best = Pictures.find_one({"_id": id_best})
-    if pict_best.get("favorable") < new_value:
+    if pict_best.get("vote") < new_value:
         Best_imag.update({"_id": "star"}, {"$set": {"best": id_pict}})
 
     return json.dumps(data)

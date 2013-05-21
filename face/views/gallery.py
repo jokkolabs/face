@@ -20,6 +20,6 @@ def gallery():
 
 def picturelist(*args, **kwargs):
     data = {}
-    for pict in Pictures.find().sort([['favorable', pymongo.DESCENDING]]):
+    for pict in Pictures.find().sort([['vote', pymongo.DESCENDING]]):
         data[pict.get('_id')] = pict
     return json.dumps(data)

@@ -13,14 +13,14 @@ function refresh() {
       var pict1 = data.picture1;
       var pict2 = data.picture2;
 
-        row1 = '<span class="posted-stylef">' + pict1.favorable + ' point(s)</span>' +
-               '<a href="#" class="picture_link" >' + '<img .idp=' + data.idp1 + ' src=' + pict1.plink + ' alt="" /></a>' +
+        row1 = '<span class="posted-stylef">' + pict1.vote + ' point(s)</span>' +
+               '<a href="#" class="picture_link" >' + '<img .idp=' + data.idp1 + ' src=' + pict1.url + ' alt="" /></a>' +
                '<span class="posted-style"><a  class="partager"href="#">Partager</a></span>' +
-               '<span class="posted-style"><a class="zoom" href=' + pict1.plink + ' alt="zoom" rel="prettyPhoto[gallery1]"><strong>zoom</strong></span>';
-        row2 = '<span class="posted-stylef">' + pict2.favorable + ' point(s)</span>' +
-               '<a href="#" class="picture_link" >' + '<img .idp=' + data.idp2 + ' src=' + pict2.plink + ' alt="" /></a>' +
+               '<span class="posted-style"><a class="zoom" href=' + pict1.url + ' alt="zoom" rel="prettyPhoto[gallery1]"><strong>zoom</strong></span>';
+        row2 = '<span class="posted-stylef">' + pict2.vote + ' point(s)</span>' +
+               '<a href="#" class="picture_link" >' + '<img .idp=' + data.idp2 + ' src=' + pict2.url + ' alt="" /></a>' +
                '<span class="posted-style"><a class="partager" href="#">Partager</a></span>' +
-               '<span class="posted-style"><a class="zoom" href=' + pict2.plink + ' alt="zoom" rel="prettyPhoto[gallery1]"><strong>zoom</strong></span>';
+               '<span class="posted-style"><a class="zoom" href=' + pict2.url + ' alt="zoom" rel="prettyPhoto[gallery1]"><strong>zoom</strong></span>';
 
         $("#p1").html(row1);
         $("#p2").html(row2);
@@ -32,8 +32,8 @@ function refresh() {
 
 function vote(){
     $(".picture_link").click(function() {
-        var plink = $(this).children("img").attr('.idp');
-        $.post('/vote', {'plink': plink}, function(data) {
+        var url = $(this).children("img").attr('.idp');
+        $.post('/vote', {'url': url}, function(data) {
                 display_alert(data.return, data.return_html, 2);
             }, "json");
         refresh();
@@ -44,9 +44,9 @@ function is_star(){
     $.getJSON('/choosepict', function(data){
         var pstar = data.star;
         star = '<div id="cbox1"><ul class="gallery clearfix"><li><a href=' +
-              pstar.plink + ' rel="prettyPhoto"><img src=' +
-              pstar.plink + ' alt="" /></a></li></ul>' + '<span class="posted-stylef">' +
-              pstar.favorable + ' point(s)</span></div></div>';
+              pstar.url + ' rel="prettyPhoto"><img src=' +
+              pstar.url + ' alt="" /></a></li></ul>' + '<span class="posted-stylef">' +
+              pstar.vote + ' point(s)</span></div></div>';
         $(".star").html(star);
         pretty();
     });
@@ -55,8 +55,8 @@ function is_star(){
 function showgallery(){
     $.getJSON('/picturelist', function(all_pictures){
       $.each(all_pictures, function(key, data) {
-        row = '<li><a title="' + data.favorable + ' point(s)" href="' + data.plink + '" rel="prettyPhoto[gallery1]"><img src="' +
-              data.plink + '" alt="' + data.favorable + ' point(s)" /></a></li>';
+        row = '<li><a title="' + data.vote + ' point(s)" href="' + data.url + '" rel="prettyPhoto[gallery1]"><img src="' +
+              data.url + '" alt="' + data.vote + ' point(s)" /></a></li>';
         $(".row-fluid ul").append(row);
       });
       pretty();
